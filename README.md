@@ -24,6 +24,19 @@ in the **highlighter** folder.
 
 ## Getting Started
 
+### Prerequisites
+
+- [Qt](https://github.com/mottosso/Qt.py): a module that supports different
+python qt bindings
+
+   or alternatively, change the code below to whatever qt binding you have on your machine.
+   ```python
+   from Qt import QtWidgets, QtCore, QtGui
+   from Qt import _loadUi
+   ```
+
+### Launch
+
 1. Unzip the **qt-code-editor** package and run `main.py` directly
 
 2. Or include the following snippet to your ui code to create a
