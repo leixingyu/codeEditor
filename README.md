@@ -49,6 +49,14 @@ code editor with syntax highlighting.
     highlighter = PythonHighlighter(editor.document())
     ```
 
+**Note:**
+if you are using highlighter in a UI class, you'll need to keep an instance of the highlighter object
+like so:
+
+```python
+self.__highlighter = PythonHighlighter(editor.document())
+```
+
 ### Reference
 
 [Qt Documentation - Code Editor Example](https://doc.qt.io/qt-5/qtwidgets-widgets-codeeditor-example.html)

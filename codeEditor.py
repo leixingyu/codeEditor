@@ -81,11 +81,9 @@ class CodeEditor(QtWidgets.QPlainTextEdit):
             bottom = top + self.blockBoundingRect(block).height()
             block_number += 1
 
-    @QtCore.Slot()
     def update_line_number_area_width(self, newBlockCount):
         self.setViewportMargins(self.line_number_area_width(), 0, 0, 0)
 
-    @QtCore.Slot()
     def update_line_number_area(self, rect, dy):
         if dy:
             self.line_number_area.scroll(0, dy)
@@ -96,21 +94,15 @@ class CodeEditor(QtWidgets.QPlainTextEdit):
         if rect.contains(self.viewport().rect()):
             self.update_line_number_area_width(0)
 
-    @QtCore.Slot()
     def highlight_current_line(self):
-        extra_selections = []
-
+        extra_selections = list()
         if not self.isReadOnly():
             selection = QtWidgets.QTextEdit.ExtraSelection()
-
             line_color = DARK_BLUE.lighter(160)
             selection.format.setBackground(line_color)
-
             selection.format.setProperty(QtGui.QTextFormat.FullWidthSelection, True)
 
             selection.cursor = self.textCursor()
             selection.cursor.clearSelection()
-
             extra_selections.append(selection)
-
         self.setExtraSelections(extra_selections)
